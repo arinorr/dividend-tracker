@@ -1,4 +1,4 @@
-// Zero based because Month.prototype.getMonth is zero based. Annoying but useful.
+// Zero based because Date.prototype.getMonth is zero based. Annoying but useful.
 export type ValidMonthNumber = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
 export const monthToString = (month: ValidMonthNumber): string => {

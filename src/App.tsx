@@ -1,47 +1,35 @@
-import { AppContainer, Sandbox } from "./App.elements";
-import { BarChart, DIVIDENDS } from "./components";
-import { DividendData } from "./components/BarChart/BarChart.types";
-import { ValidMonthNumber, monthToString } from "./utils/date";
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { AppContainer, } from "./App.elements";
+import { AppLayout } from "./AppLayout";
+import { Loading } from "./components";
+
+const Examples = lazy(() => import('./pages/Examples/ExamplesRoute'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
-  // Group our data by month, eventually we'll want a better/more customizable way of grouping the data.
-  const dataByMonth = DIVIDENDS.reduce((data, current) => {
-    const month = monthToString(current.date.getMonth() as ValidMonthNumber);
-    const monthData = data[month];
-
-    if (monthData) {
-      monthData.push(current);
-    }
-
-    return data;
-  }, {
-    'January': [],
-    'February': [],
-    'March': [],
-    'April': [],
-    'May': [],
-    'June': [],
-    'July': [],
-    'August': [],
-    'September': [],
-    'October': [],
-    'November': [],
-    'December': []
-  } as Record<string, Array<DividendData>>);
-  
-  const finalDividendData = Object.keys(dataByMonth).map((key) => {
-    const value = dataByMonth[key].reduce((total, current) => total += current.value, 0);
-    return ({ label: key, value, });
-  });
-
   return (
-    <AppContainer>
-      <Sandbox>
-        <BarChart data={finalDividendData} height={800} width={1600} />
-      </Sandbox>
-    </AppContainer>
+    <BrowserRouter>
+      <AppContainer>
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<HomePage />} />
+            <Route
+              path="examples/*"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Examples />
+                </Suspense>
+              }
+            />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </AppContainer>
+    </BrowserRouter>
   );
 }
 
 export default App;
-

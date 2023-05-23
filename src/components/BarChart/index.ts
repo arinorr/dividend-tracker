@@ -1,2 +1,2 @@
-export { BarChart } from './BarChart';
-export { DIVIDENDS } from './BarChart.data';
+export { BarChart, } from './BarChart';
+export type { BarChartData } from './BarChart.types';

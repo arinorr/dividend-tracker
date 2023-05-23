@@ -1,4 +1,9 @@
-import { DividendData } from "./BarChart.types";
+export type DividendData = {
+  label: string;
+  value: number;
+  date: Date;
+  symbol: string;
+};
 
 export const DIVIDENDS: DividendData[] = [
   { date: new Date('2023-04-14'), symbol: "O", label: "Reality Income Corp", value: 7.39 },

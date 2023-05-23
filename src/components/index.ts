@@ -1,2 +1,3 @@
-export { BarChart, DIVIDENDS } from './BarChart';
+export { BarChart, } from './BarChart';
+export { Loading } from './Loading';
 // export * from './PieChart';
