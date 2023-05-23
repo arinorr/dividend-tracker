@@ -12,8 +12,8 @@ type BarChartProps = {
   width?: number;
 };
 
-const StyledSVG = styled.svg<{ padding: string }>(({ padding }) => css`
-  border: 2px solid orange;
+const StyledSVG = styled.svg<{ border?: string; padding: string }>(({ border, padding }) => css`
+  border: ${border ? "2px solid orange" : "none"};
   padding: ${padding}px;
 `);
 

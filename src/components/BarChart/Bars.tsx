@@ -17,6 +17,8 @@ type BarsProps = {
 }
 
 const StyledBar = styled.rect<{ colors: ColorConfig }>((props) => css`
+  cursor: pointer;
+
   &:hover {
     fill: ${props.colors.hover};
     stroke: ${props.colors.border};
