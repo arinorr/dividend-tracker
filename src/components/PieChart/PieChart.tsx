@@ -24,6 +24,9 @@ export const PieChart = ({ data, height = 400, margin = { top: 0, right: 0, bott
   
   const arcs = pie(data);
 
+console.log('arc: ', arc);
+console.log('arcs: ', arcs);
+
 // svg.append("g")
 //    .attr("stroke", "white")
 //    .selectAll("path")

@@ -9,17 +9,24 @@ type BarChartProps = {
   data: Array<BarChartData>;
   height?: number;
   padding?: { top: number; right: number; bottom: number; left: number; };
+  margin?: { top: number; right: number; bottom: number; left: number; };
   width?: number;
 };
 
-const StyledSVG = styled.svg<{ border?: string; padding: string }>(({ border, padding }) => css`
+const StyledSVG = styled.svg<{
+  border?: string;
+  margin: string;
+  padding: string
+}>(({ border, margin, padding }) => css`
   border: ${border ? border : "none"};
-  padding: ${padding}px;
+  padding: ${padding};
+  margin: ${margin};
 `);
 
 export const BarChart = ({
   data,
   height = 300,
+  margin = { top: 0, right: 0, bottom: 0, left: 0 },
   padding = { top: 32, right: 32, bottom: 32, left: 32 },
   width = 500,
 }: BarChartProps) => {
@@ -41,6 +48,7 @@ export const BarChart = ({
   return (
     <StyledSVG
       height={height}
+      margin={`${margin.top}px ${margin.right}px ${margin.bottom}px ${margin.left}px`}
       padding={`${padding.top}px ${padding.right}px ${padding.bottom}px ${padding.left}px`}
       preserveAspectRatio="xMidYMid"
       viewBox={`0 0 ${width} ${height}`}

@@ -17,7 +17,7 @@ export const YAxis = ({ scale, transform }: YAxisProps) => {
   }, [scale]);
 
   return (
-    <g transform={transform} fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
+    <g transform={transform} fill="none" fontSize="12" fontFamily="sans-serif" textAnchor="end">
       <path className="domain" stroke="currentColor" d="M-6,536H0V0H-6" />
       {ticks.map(({ value, yOffset }, index) => {
         return (
