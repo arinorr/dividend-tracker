@@ -1,7 +1,7 @@
 import { scaleBand, scaleLinear } from "d3";
 import { BarChartData } from "./BarChart.types";
 import { XAxis } from "./XAxis";
-import { YAxis } from "./YAxis";
+import { YAxis } from "./YAxis/YAxis";
 import { Bars } from "./Bars";
 import styled, { css } from "styled-components";
 
@@ -13,7 +13,7 @@ type BarChartProps = {
 };
 
 const StyledSVG = styled.svg<{ border?: string; padding: string }>(({ border, padding }) => css`
-  border: ${border ? "2px solid orange" : "none"};
+  border: ${border ? border : "none"};
   padding: ${padding}px;
 `);
 

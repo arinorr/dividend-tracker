@@ -36,17 +36,18 @@ export const Bars = ({
   return (
     <>
       {data.map(({ value, label }) => {
-        const x = scaleX(label) || 0;
+        const x = scaleX(label) || 0; 
         const y = scaleY(value) || 0;
+        const barHeight = Math.max(0, height - scaleY(value));
 
         return (
           <StyledBar
             colors={colors}
             key={`bar-${label}`}
-            x={x + 32}
+            x={x + 34}
             y={y}
             width={scaleX.bandwidth() - 2}
-            height={height - scaleY(value)}
+            height={barHeight}
             fill={colors.fill}
           />
         );
