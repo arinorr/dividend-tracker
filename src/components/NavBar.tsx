@@ -37,7 +37,7 @@ export const NavBar = () => {
           <StyledNavLink to="/">Home</StyledNavLink>
         </StyledNavItem>
         <StyledNavItem>
-          <StyledNavLink to="/examples">Examples</StyledNavLink>
+          <StyledNavLink to="/BarChart">Bar Chart</StyledNavLink>
         </StyledNavItem>
       </StyledUl>
     </StyledNavBar>

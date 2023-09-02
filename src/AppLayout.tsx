@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 import { NavBar } from "./components/NavBar";
+import { Loading } from "./components/Loading";
+import { Suspense } from "react";
 
 const AppContainer = styled.div`
   display: flex;
@@ -21,7 +23,9 @@ export const AppLayout = () => {
     <AppContainer>
       <NavBar />
       <PageContainer>
-        <Outlet />
+        <Suspense fallback={<Loading />} >
+          <Outlet />
+        </Suspense>
       </PageContainer>
     </AppContainer>
   );

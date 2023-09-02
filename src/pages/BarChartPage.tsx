@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { BarChart } from "../../components";
-import { DIVIDENDS, DividendData } from "../../data/dividends";
-import { ValidMonthNumber, monthToString } from "../../utils/date";
+import { BarChart } from "../components/BarChart";
+import { DIVIDENDS, DividendData } from "../data/dividends";
+import { ValidMonthNumber, monthToString } from "../utils/date";
 
 export const StyledContainer = styled.div`
   align-items: center;
